@@ -1,10 +1,15 @@
-const School = require('./school');
+const express = require('express');
 
-const school = new School();
+const app = express();
 
-// register a listener for bellRing event
-school.on('bellRing', ({ period, text }) => {
-    console.log(`We need to run because ${period} ${text}!`);
+app.get('/', (req, res) => {
+    res.send('This is home page');
 });
 
-school.startPeriod();
+app.post('/', (req, res) => {
+    res.send('This is home page with post request');
+});
+
+app.listen(3000, () => {
+    console.log('Listening on PORT 3000');
+});
